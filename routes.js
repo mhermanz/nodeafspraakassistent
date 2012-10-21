@@ -1,4 +1,4 @@
-var user = require('./controllers/test.js');
+var test = require('./controllers/test.js');
 
 exports = module.exports = function(app){
     
@@ -8,9 +8,16 @@ exports = module.exports = function(app){
     });
     
     //users
-    app.get('/test',user.list );
-    app.get('/test/:id', user.get);
-    app.post('/test', user.insert);
-    app.put('/test/:id', user.update);
-    app.del('/test/:id', user.delete);
+    app.get('/test',andRestrictTo('all'),test.list );
+    app.get('/test/:id',andRestrictTo('user'), test.get);
+    app.post('/test',andRestrictTo('admin'), test.insert);
+    app.put('/test/:id',andRestrictTo('admin'), test.update);
+    app.del('/test/:id',andRestrictTo('admin'), test.delete);
 };
+
+function andRestrictTo(role) {
+    return function(req, res, next) {
+        (role === "all" || role === req.query.user)
+           ? next() : next(new Error('Unauthorized'));
+   };
+}
