@@ -1,19 +1,19 @@
 
 var express = require('express');
 var routes = require('./routes.js');
-var fs = require("fs");
-//var https = require('https');
-/*
-var options = {
-  key: fs.readFileSync('./privatekey.pem'),
-  cert: fs.readFileSync('./certificate.pem')
-};*/
+var routeConnector = require('./route-connector.js');
 
 var app = express();
 
+var restrict = function andRestrictTo(role) {
+    return function(req, res, next) {
+        (role === "all" || role === req.query.user)
+           ? next() : next(new Error('Unauthorized'));
+   };
+}
 
-routes(app);
+routeConnector.connectToExpress(app,routes,restrict);
 
 app.listen(process.env.PORT);
 
-//https.createServer(options,app).listen(process.env.PORT);
+
