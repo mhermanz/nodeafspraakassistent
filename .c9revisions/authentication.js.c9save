@@ -1,0 +1,4 @@
+{"ts":1352757365179,"silentsave":true,"restoring":false,"patch":[[]],"length":0}
+{"contributors":[],"silentsave":false,"ts":1352757511134,"patch":[[{"diffs":[[1,"exports.authenticate = function (accessLevel,username,password){\n    return (username === accessLevel && password === accessLevel);\n};\n"]],"start1":0,"start2":0,"length1":0,"length2":135}]],"length":135,"saved":false}
+{"ts":1352757716724,"patch":[[{"diffs":[[0,"ame === "],[-1,"accessLevel"],[1,"'1'"],[0," && pass"]],"start1":82,"start2":82,"length1":27,"length2":19}]],"length":127,"saved":false}
+{"ts":1352757769383,"patch":[[{"diffs":[[0,"=== "],[-1,"'1'"],[1,"accessLevel"],[0," && "]],"start1":86,"start2":86,"length1":11,"length2":19}]],"length":135,"saved":false}
