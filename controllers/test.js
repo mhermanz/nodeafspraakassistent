@@ -1,5 +1,8 @@
-exports.list = function(req,res){
-    res.send("list");
+exports.list = function(req,res,db){
+    var fluffy = new db.User({ name: 'usertje',password: 'pw' });
+    fluffy.save();
+    //db.testMongoose();
+    res.send(fluffy);
 };
 exports.get = function(req,res){
     var retValue = "get " + req.params.id + "\n";
