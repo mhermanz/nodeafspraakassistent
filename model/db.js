@@ -8,9 +8,11 @@ db.once('open', function callback () {console.log('connection is open');
 //User
 var userSchema = new mongoose.Schema({
     name: String,
-    password: String
+    password: String,
+    accessLevel:[String]
 });
 exports.User = db.model('User', userSchema);
+
 
 
 
