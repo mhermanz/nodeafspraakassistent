@@ -8,5 +8,6 @@ exports = module.exports = [
     {method:'get', path:'/test/:id',controller:test.get,accessLevel:'user'},     
     {method:'post', path:'/test',controller:test.insert,accessLevel:'admin'},    
     {method:'put', path:'/test/:id',controller:test.update,accessLevel:'all'},     
-    {method:'del', path:'/test/:id',controller:test.delete,accessLevel:'all'}     
+    {method:'del', path:'/test/:id',controller:test.delete,accessLevel:'all'} 
+    aaa
 ];
